@@ -57,4 +57,4 @@ echo "Meteogramms finished"
 
 
 ##Stationmaps
-#python /localdata/weathermaps/imuk/products/stationmaps/stationmap_metpy.py $path_input $path_output_stationt
+python /localdata/weathermaps/imuk/products/stationmaps/stationmap_metpy.py $path_input $path_output_stationt
