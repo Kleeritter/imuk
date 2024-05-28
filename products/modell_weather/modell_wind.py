@@ -37,7 +37,8 @@ def picture(vara, varb, number, resx, resy, dir_origin,filenames, model):
 
     try:
         lon1 = f1.variables['lon_0'][:] - 360
-    except:
+    except KeyError:
+        print("trying differnte Key")
         lon1 = f1.variables['lon'][:] - 360
 
     lat1 = f1.variables['lat_0'][:]
