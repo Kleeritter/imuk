@@ -131,7 +131,7 @@ def requestmeteogram(model="icon", output_path= "products/meteogram/", time = da
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('outputpath')  # 350
+    parser.add_argument('output_path')  # 350
     args = parser.parse_args()
     time = datetime.now()
     time = time.replace(hour=0, minute=0, second=0, microsecond=0)

@@ -51,7 +51,7 @@ echo "icon-d2 finished"
 #echo "resizing  finished"
 
 ##Request Meteogramm
-python /localdata/weathermaps/imuk/products/meteogram/request_meteogram.py $path_output_meteogram
+#python /localdata/weathermaps/imuk/products/meteogram/request_meteogram.py $path_output_meteogram
 
 python /localdata/weathermaps/imuk/products/stationmaps/stationmap_metpy.py $path_input $path_output_stationt
 
