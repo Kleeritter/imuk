@@ -41,7 +41,7 @@ def requestmeteogram(model="icon", output_path= "products/meteogram/", time = da
                     with xr.open_dataset(file_path, engine="cfgrib") as ds:
                         value = ds[variable].sel(longitude=lon_han, latitude=lat_han).values.item()
                         variable_values[f"{variable}{levels_variable}"].append(value)
-                        #print(variable,value)
+                        print(variable,value)
                 except:
 
                     variable_values[f"{variable}{levels_variable}"].append(np.nan)
@@ -134,6 +134,7 @@ if __name__ == "__main__":
     parser.add_argument('output_path')  # 350
     args = parser.parse_args()
     time = datetime.now()
+    print(time.strftime("%H"))
 
     if int(time.strftime("%H")) >= 4 and int(time.strftime("%H")) <= 11:
         time = time.replace(hour=0, minute=0, second=0, microsecond=0)
@@ -143,7 +144,7 @@ if __name__ == "__main__":
         time = time.replace(hour=0, minute=0, second=0, microsecond=0)
 
 
-    print(time)
+    #print(time)
 
 
     requestmeteogram(model="icon",output_path=args.output_path,time = time)
