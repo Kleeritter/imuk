@@ -8,8 +8,8 @@ stepsize=3
 path_input=/localdata/weathermaps/imuk
 path_output=/localdata/weathermaps/webside/gross
 path_output_stationt=/localdata/weathermaps/stationmaps
-path_input_meteogram=/localdata/weathermaps/data/meteogram
-path_output_meteogram=/localdata/weathermaps/meteogram
+path_input_meteogram=/localdata/weathermaps/data/meteogram/
+path_output_meteogram=/localdata/weathermaps/meteogram/
 
 
 path_output_klein=/localdata/weathermaps/webside/klein
