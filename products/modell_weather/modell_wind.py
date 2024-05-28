@@ -33,6 +33,7 @@ def picture(vara, varb, number, resx, resy, dir_origin,filenames, model):
     fn1 = vara  # '/database/input/icon/2022/8/19/00/u/300/outfile_merged_2022081900_000_004_300_U.grib2' #path name of model output
     f1 = Nio.open_file(os.path.join(vara))  # model output definition
 
+    print(vara)
     print(f1.variables.keys()) # list of the variables briefly
 
     try:
