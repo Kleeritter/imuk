@@ -108,11 +108,11 @@ def plot_meteogramm (model="icon", inputpath="", output_path=""):
 
 
 
-    for index, row in df.iterrows():
-        synop_code = row["WW"]  # Annahme: Die Spalte "WW" enthält die Synop-Codes
-        svg_path = get_svg_for_synop_code(synop_code)
-        img = mpimg.imread(svg_path)
-        ax6.imshow(img, aspect='auto', extent=(index, index+1, synop_code-0.5, synop_code+0.5), zorder=3)
+    ##for index, row in df.iterrows():
+    #    synop_code = row["WW"]  # Annahme: Die Spalte "WW" enthält die Synop-Codes
+     #   svg_path = get_svg_for_synop_code(synop_code)
+      #  img = mpimg.imread(svg_path)
+       # ax6.imshow(img, aspect='auto', extent=(index, index+1, synop_code-0.5, synop_code+0.5), zorder=3)
 
 
     ax6.set_ylabel('Windspeed', fontsize=12)
