@@ -11,6 +11,8 @@ path_output_stationt=/localdata/weathermaps/stationmaps
 path_input_meteogram=/localdata/weathermaps/data/meteogram/
 path_output_meteogram=/localdata/weathermaps/meteogram/
 
+path_output_modell_wind=/localdata/weathermaps/modell_weather/modell_wind
+
 
 path_output_klein=/localdata/weathermaps/webside/klein
 path_output_4panel=/localdata/weathermaps/webside/4panel
@@ -49,10 +51,17 @@ echo "resizing  finished"
 
 echo "start Meteogramms"
 
-python /localdata/weathermaps/imuk/products/meteogram/meteogram.py $path_input_meteogram $path_output_meteogram
+#python /localdata/weathermaps/imuk/products/meteogram/meteogram.py $path_input_meteogram $path_output_meteogram
 
 
 echo "Meteogramms finished"
+
+
+#### modell_weather
+
+echo "start Modellweather"
+
+python /localdata/weathermaps/imuk/products/modell_weather/modell_wind.py $xdim_1 $ydim_1 $path_output_modell_wind $path_input $start $end $stepsize $model
 
 
 
