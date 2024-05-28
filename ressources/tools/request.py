@@ -196,12 +196,13 @@ def varrequest(number):
                     var, variables[number][2][1:], variables[number][1], cdt_yrmoday, init_time_hr, str(hour).zfill(3), variables[number][2], str(var).upper())
                 
                 def remap(ifile, grids, weights):
-                    #print("begin remapping of ", ifile)
+                    print("begin remapping of ", ifile)
                     cdo.remap(grids, weights, input=ifile, output='ofile_{}_{}_{}_{}'.format(
                         ifile.split('_')[-4:][0], ifile.split('_')[-4:][1],
                         ifile.split('_')[-4:][2], ifile.split('_')[-4:][3]),
                         options='-f grb2')
                     return
+                    
                 remap(ifile,grids,weights)
             
             except Exception as err:
