@@ -12,6 +12,7 @@ import matplotlib.image as mpimg
 # Lade das kombinierte Dataset aus der NetCDF-Datei
 from PIL import Image
 import io
+import argparse
 def get_svg_for_synop_code(synop_code):
     # Hier solltest du den Pfad zu deinen SVG-Dateien entsprechend dem Synop-Code erstellen und das SVG als Text zurückgeben
     # Beispiel:
@@ -137,6 +138,17 @@ def plot_meteogramm (model="icon", inputpath="", output_path=""):
     plt.savefig(output_path+"meteogramm_"+model+".png")
 #plt.show()
 
-plot_meteogramm (model="icon", inputpath="/mnt/nvmente/CODE/imuk/database/input/meteogram/", output_path="/mnt/nvmente/CODE/imuk/database/output/meteogram/")
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('inputpath')  # 350
+    parser.add_argument('outputpath')  # 350
+    args = parser.parse_args()
+    plot_meteogramm(model="icon", inputpath=args.inputpath,output_path=args.outputpath)
+    plot_meteogramm(model="icon-eu", inputpath=args.inputpath,output_path=args.outputpath)
+    plot_meteogramm(model="icon-d2", inputpath=args.inputpath,output_path=args.outputpath)
+
+
+#plot_meteogramm (model="icon", inputpath="/mnt/nvmente/CODE/imuk/database/input/meteogram/", output_path="/mnt/nvmente/CODE/imuk/database/output/meteogram/")
 #plot_meteogramm (model="icon-eu", inputpath="/mnt/nvmente/CODE/imuk/database/input/meteogram/", output_path="/mnt/nvmente/CODE/imuk/database/output/meteogram/")
 #plot_meteogramm (model="icon-d2", inputpath="/mnt/nvmente/CODE/imuk/database/input/meteogram/", output_path="/mnt/nvmente/CODE/imuk/database/output/meteogram/")

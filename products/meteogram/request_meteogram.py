@@ -2,7 +2,7 @@ import xarray as xr
 import pandas as pd
 from datetime import datetime
 import numpy as np
-
+import argparse
 
 def requestmeteogram(model="icon", output_path= "products/meteogram/", time = datetime.now()):
     data_path = "database/input/"+model+  time.strftime("/%Y/")+time.strftime("%m").lstrip("0") +"/"+ time.strftime("%d").lstrip("0") + "/" +time.strftime("%H").zfill(2) +"/"   #"/2024/3/12/00/"
@@ -128,6 +128,19 @@ def requestmeteogram(model="icon", output_path= "products/meteogram/", time = da
     combined_ds.to_netcdf(output_path +"meteogramm_"+model+".nc")
     return
 
-requestmeteogram(model="icon",output_path="/mnt/nvmente/CODE/imuk/database/input/meteogram/",time =datetime(2024, 4, 23, 12, 0, 0))
-requestmeteogram(model="icon-eu",output_path="/mnt/nvmente/CODE/imuk/database/input/meteogram/",time =datetime(2024, 4, 23, 12, 0, 0))
-requestmeteogram(model="icon-d2",output_path="/mnt/nvmente/CODE/imuk/database/input/meteogram/",time =datetime(2024, 4, 23, 12, 0, 0))
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('outputpath')  # 350
+    args = parser.parse_args()
+    time = datetime.now()
+    time = time.replace(hour=0, minute=0, second=0, microsecond=0)
+
+
+    requestmeteogram(model="icon",output_path=args.output_path,time = time)
+    requestmeteogram(model="icon-d2",output_path=args.output_path,time = time)
+
+    requestmeteogram(model="icon-eu",output_path=args.output_path,time = time)
+
+    #requestmeteogram(model="icon-eu",output_path="/mnt/nvmente/CODE/imuk/database/input/meteogram/",time =datetime(2024, 4, 23, 12, 0, 0))
+    #requestmeteogram(model="icon-d2",output_path="/mnt/nvmente/CODE/imuk/database/input/meteogram/",time =datetime(2024, 4, 23, 12, 0, 0))

@@ -69,6 +69,14 @@ from ressources.tools.observations import metarrequest
 
 fcst_hrs = imuktools.fcst_hrsf(model='icon')
 fcst_hrs_output = []
+
+if not os.path.exists(dir_parent):
+    try:
+        os.makedirs(dir_parent)
+        print("created", dir_parent)
+    except:
+        pass
+
 os.chdir(dir_parent)
 for output in fcst_hrs:
     fcst_hrs_string = str(output).zfill(3)

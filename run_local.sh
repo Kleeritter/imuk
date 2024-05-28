@@ -7,10 +7,11 @@ start=3
 end=8
 stepsize=3
 
-path_origin=/home/alex/code/imuk                      
-#python_path=/Users/alex/miniforge3/envs/imuk/bin/python   
+#path_origin=/home/alex/code/imuk                      
+path_origin=/Users/alex/code/imuk
+python_path=/opt/homebrew/Caskroom/miniforge/base/envs/imuk/bin/python
 #path_origin=/mnt/nvmente/CODE/imuk #/Users/alex/Code/imuk   # Change this 
-python_path=/home/alex/miniforge3/envs/imuk/bin/python      # and this
+#python_path=/home/alex/miniforge3/envs/imuk/bin/python      # and this
  
 
 
@@ -43,7 +44,7 @@ mode=summer
 
 echo "request global started"
 
-$python_path "${path_origin}/ressources/tools/request.py" $path_origin "${path_origin}/database/input/icon"
+#$python_path "${path_origin}/ressources/tools/request.py" $path_origin "${path_origin}/database/input/icon"
 #echo "request global completed"
 
 echo "request eu started"

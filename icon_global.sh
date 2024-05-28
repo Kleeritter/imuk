@@ -8,6 +8,7 @@ stepsize=3
 path_input=/localdata/weathermaps/imuk
 path_output=/localdata/weathermaps/webside/gross
 path_output_stationt=/localdata/weathermaps/stationmaps
+path_output_meteogram=/localdata/weathermaps/data/meteogram
 
 
 path_output_klein=/localdata/weathermaps/webside/klein
@@ -34,20 +35,22 @@ python /localdata/weathermaps/imuk/ressources/tools/request_d2.py /localdata/wea
 echo "icon-d2 finished"
 
 
-python /localdata/weathermaps/imuk/products/gph_maps/wind_300.py $xdim_1 $ydim_1 $path_output $path_input $start $end $stepsize
+#python /localdata/weathermaps/imuk/products/gph_maps/wind_300.py $xdim_1 $ydim_1 $path_output $path_input $start $end $stepsize
 
-echo "300  finished"
+#echo "300  finished"
 
-python /localdata/weathermaps/imuk/products/gph_maps/gph_temp_850.py $xdim_1 $ydim_1 $path_output $path_input $start $end $stepsize
-echo "850  finished"
-python /localdata/weathermaps/imuk/products/gph_maps/gph_temp_500.py $xdim_1 $ydim_1 $path_output $path_input $start $end $stepsize
-echo "500  finished"
-python /localdata/weathermaps/imuk/products/gph_maps/gph_rh_700.py $xdim_1 $ydim_1 $path_output $path_input $start $end $stepsize
-echo "700  finished"
-python /localdata/weathermaps/imuk/products/gph_maps/bd_sw_meteosat.py $xdim_1 $ydim_1 $path_output $path_input $start $end $stepsize $model
+#python /localdata/weathermaps/imuk/products/gph_maps/gph_temp_850.py $xdim_1 $ydim_1 $path_output $path_input $start $end $stepsize
+#echo "850  finished"
+#python /localdata/weathermaps/imuk/products/gph_maps/gph_temp_500.py $xdim_1 $ydim_1 $path_output $path_input $start $end $stepsize
+#echo "500  finished"
+#python /localdata/weathermaps/imuk/products/gph_maps/gph_rh_700.py $xdim_1 $ydim_1 $path_output $path_input $start $end $stepsize
+#echo "700  finished"
+#python /localdata/weathermaps/imuk/products/gph_maps/bd_sw_meteosat.py $xdim_1 $ydim_1 $path_output $path_input $start $end $stepsize $model
 
-python /localdata/weathermaps/imuk/ressources/tools/imageresizer.py $path_output_klein $path_output_4panel $path_output $xdim_3 $ydim_3 $xdim_2 $ydim_2
-echo "resizing  finished"
+#python /localdata/weathermaps/imuk/ressources/tools/imageresizer.py $path_output_klein $path_output_4panel $path_output $xdim_3 $ydim_3 $xdim_2 $ydim_2
+#echo "resizing  finished"
 
-##Stationmaps
-python /localdata/weathermaps/imuk/products/stationmaps/stationmap_metpy.py $path_input $path_output_stationt
+##Request Meteogramm
+python /localdata/weathermaps/imuk/products/meteogram/request_meteogram.py $path_output_meteogram
+
+
