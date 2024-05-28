@@ -115,7 +115,7 @@ def varrequest(number):
             # print(url_data)
             data_request = requests.get(url_data, stream=True)
             if data_request.status_code == 200:
-                print(url_data)
+                #print(url_data)
                 print('{}'.format(var), u'\u2714')
 
             with open('icon-d2_germany_regular-lat-lon_{}_{}{}_{}_{}_{}.grib2.bz2'.format(

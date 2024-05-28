@@ -125,7 +125,7 @@ def requestmeteogram(model="icon", output_path= "products/meteogram/", time = da
     combined_ds['v10'].attrs['units'] = 'm/s'
 
     print(combined_ds["WW"])
-    combined_ds.to_netcdf(output_path +"meteogramm_"+model+".nc")
+    combined_ds.to_netcdf(output_path +"/meteogramm_"+model+".nc")
     return
 
 if __name__ == "__main__":
@@ -135,6 +135,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
     time = datetime.now()
     time = time.replace(hour=0, minute=0, second=0, microsecond=0)
+
+    print(time)
 
 
     requestmeteogram(model="icon",output_path=args.output_path,time = time)

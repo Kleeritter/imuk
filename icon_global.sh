@@ -25,13 +25,13 @@ ydim_3=210
 
 model=icon
 
-python /localdata/weathermaps/imuk/ressources/tools/request.py /localdata/weathermaps/imuk /localdata/weathermaps/imuk/database/input/icon
+#python /localdata/weathermaps/imuk/ressources/tools/request.py /localdata/weathermaps/imuk /localdata/weathermaps/imuk/database/input/icon
 echo "icon finished"
 
-python /localdata/weathermaps/imuk/ressources/tools/request_eu.py /localdata/weathermaps/imuk /localdata/weathermaps/imuk/database/input/icon-eu
+#python /localdata/weathermaps/imuk/ressources/tools/request_eu.py /localdata/weathermaps/imuk /localdata/weathermaps/imuk/database/input/icon-eu
 echo "icon-eu finished"
 
-python /localdata/weathermaps/imuk/ressources/tools/request_d2.py /localdata/weathermaps/imuk /localdata/weathermaps/imuk/database/input/icon-d2
+#python /localdata/weathermaps/imuk/ressources/tools/request_d2.py /localdata/weathermaps/imuk /localdata/weathermaps/imuk/database/input/icon-d2
 echo "icon-d2 finished"
 
 
@@ -51,7 +51,7 @@ echo "icon-d2 finished"
 #echo "resizing  finished"
 
 ##Request Meteogramm
-#python /localdata/weathermaps/imuk/products/meteogram/request_meteogram.py $path_output_meteogram
+python /localdata/weathermaps/imuk/products/meteogram/request_meteogram.py $path_output_meteogram
 
 python /localdata/weathermaps/imuk/products/stationmaps/stationmap_metpy.py $path_input $path_output_stationt
 
