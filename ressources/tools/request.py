@@ -212,6 +212,11 @@ def varrequest(number):
             # Deaktiviere den Alarm, falls das Skript vorher beendet wird
                 signal.alarm(0)
 
+        for ifile in glob.glob('*icosahedral*', recursive=True):
+            print("Removing ", ifile)
+            os.remove(ifile)
+
+
         os.chdir(dir_origin)
         print( var, variables[number][1],variables[number][2], "fertig")
  
