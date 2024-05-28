@@ -35,8 +35,11 @@ def picture(vara, varb, number, resx, resy, dir_origin,filenames, model):
 
     print(f1.variables.keys()) # list of the variables briefly
 
+    try:
+        lon1 = f1.variables['lon_0'][:] - 360
+    except:
+        lon1 = f1.variables['lon'][:] - 360
 
-    lon1 = f1.variables['lon_0'][:] - 360
     lat1 = f1.variables['lat_0'][:]
     u = f1.variables['UGRD_P0_L103_GLL0'][:, :]
 
