@@ -134,7 +134,14 @@ if __name__ == "__main__":
     parser.add_argument('output_path')  # 350
     args = parser.parse_args()
     time = datetime.now()
-    time = time.replace(hour=0, minute=0, second=0, microsecond=0)
+
+    if int(time.strftime("%H")) >= 4 and int(time.strftime("%H")) <= 11:
+        time = time.replace(hour=0, minute=0, second=0, microsecond=0)
+    elif int(time.strftime("%H")) >= 16 and int(time.strftime("%H")) <= 23:
+        time = time.replace(hour=12, minute=0, second=0, microsecond=0)
+    else:
+        time = time.replace(hour=0, minute=0, second=0, microsecond=0)
+
 
     print(time)
 
