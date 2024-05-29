@@ -7,6 +7,8 @@ import metpy.calc as mpcalc
 from metpy.units import units
 import ressources.tools.imuktools as imuktools
 import argparse
+from multiprocess import Pool
+
 
 
 ###
@@ -377,9 +379,15 @@ def main():
     #print(variablepaths)
 
     ## Main Process
-    for i in range(0,len(timerange)):
+    poolvars = [(variablepaths[0][i], variablepaths[1][i], i, resx, resy, dir_origin, filenames, model) for i in timerange]
+
+    with Pool() as pool:
+            pool.starmap(picture, poolvars)
+            pool.close()
+            pool.join()
+   # for i in range(0,len(timerange)):
         #print(variablepaths[0][i])
-        picture(variablepaths[0][i], variablepaths[1][i], i, resx, resy, dir_origin,filenames,model)
+    #    picture(variablepaths[0][i], variablepaths[1][i], i, resx, resy, dir_origin,filenames,model)
     return
 
 

@@ -1,5 +1,5 @@
 import os
-import Nio, Ngl
+import  Ngl
 import numpy as np
 import warnings
 from datetime import datetime
@@ -9,6 +9,7 @@ import ressources.tools.imuktools as imuktools
 import argparse
 import pandas as pd
 import xarray as xr
+from multiprocess import Pool
 
 ###
 def picture(vara, number, resx, resy, dir_origin,filenames,model):
@@ -216,7 +217,7 @@ def picture(vara, number, resx, resy, dir_origin,filenames,model):
     #t2= ["{:.2f}".format(value) for value in t2.flatten()]  # Formatierung der Temperaturwerte
     #print(len(lat1),len(lon1))
     #print(lon1)
-    scale_tudes = 60#80
+    scale_tudes = 40#80
     lon_new = np.linspace(-75, 75, num=scale_tudes)
     lat_new = np.linspace(5, 80, num=scale_tudes)
  
@@ -338,11 +339,18 @@ def main():
 
     timestepnumber = len(variablepaths[0])
 
+    poolvars = [(variablepaths[0][i], i, resx, resy, dir_origin,filenames,model) for i in timerange]
 
+    with Pool() as pool:
+            pool.starmap(picture, poolvars)
+            pool.close()
+            pool.join()
     ## Main Process
-    for i in range(0,len(timerange)):
-        picture(variablepaths[0][i], i, resx, resy, dir_origin,filenames,model)
+    #for i in range(0,len(timerange)):
+     #   picture(variablepaths[0][i], i, resx, resy, dir_origin,filenames,model)
     return
+
+
 
 
 if __name__ == "__main__":
