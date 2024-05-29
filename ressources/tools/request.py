@@ -213,7 +213,7 @@ def varrequest(number):
                 signal.alarm(0)
 
         for ifile in glob.glob('*icosahedral*', recursive=True):
-            print("Removing ", ifile)
+            #print("Removing ", ifile)
             os.remove(ifile)
 
 
